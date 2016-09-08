@@ -8,17 +8,17 @@
 # skill=(1,2,3,4,5)
 # E=0
 
-total_ad = 10
-bonus_ad = 5
+TOTAL_AD = 10
+BONUS_AD = 5
 
-q_level = 1
-w_level = 1
-e_level = 1
+Q_LEVEL = 1
+W_LEVEL = 1
+E_LEVEL = 1
 
 def is_ult_active():
   return True
 
-def move_q():
+def move_q(q_level, bonus_ad, total_ad):
   if q_level == 1:
     if is_ult_active():
       return 30 + 0.45 * total_ad * 0.2 * bonus_ad
@@ -45,7 +45,7 @@ def move_q():
     else:
       return 90 + 0.6 * total_ad
 
-def move_w():
+def move_w(w_level, bonus_ad, total_ad):
   if w_level == 1:
     if is_ult_active():
       bonus_ad = 1.2 * bonus_ad
@@ -54,8 +54,8 @@ def move_w():
       return 50 + 1.0 * bonus_ad
   if w_level == 2:
     if is_ult_active():
-      bonus_ad = 1.2 * bonus_ad * 
-      return 80 + 1.0 * bonus_ad * 
+      bonus_ad = 1.2 * bonus_ad
+      return 80 + 1.0 * bonus_ad
     else:
       return 80 + 1.0 * bonus_ad
   if w_level == 3:
@@ -77,7 +77,7 @@ def move_w():
     else:
       return 170 + 1.0 * bonus_ad
 
-def move_r():
+def move_r(r_level, bonus_ad):
   if r_level == 1:
     return 100 + 0.6 * bonus_ad
   if r_level == 2:
@@ -91,3 +91,10 @@ def move_r():
 # RQ3=R + Q3
 # EWQ=E + W + Q
 
+if __name__ == '__main__':
+  print('Move Q at level 1 with 10 total AD and 10 bonus AD:')
+  print(move_q(1, 10, 10))
+  print('Move W at level 1 with 10 total AD and 10 bonus AD:')
+  print(move_w(1, 10, 10))
+  print('Move R at level 1 with 10 bonus AD:')
+  print(move_r(1, 10))
