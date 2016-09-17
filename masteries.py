@@ -1,3 +1,5 @@
+champ=raw_input('Who are you laning against: ')
+
 champions = {
     'kayle': 'tld',
     'swain': 'fob',
@@ -13,7 +15,7 @@ champions = {
     'jax': 'tld',
     'teemo': 'tld',
     'kennen': 'tld',
-    'jarvan iv': 'fob',
+    'jarvaniv': 'fob',
     'yasuo': 'fob',
     'kled': 'fob',
     'poppy': 'fob',
@@ -35,7 +37,7 @@ champions = {
     'trundle': 'tld',
     'aatrox': 'tld',
     'gangplank': 'tld',
-    'dr. mundo': 'fob',
+    'drmundo': 'fob',
     'nasus': 'fob',
     'volibear': 'fob',
     'xin zhao': 'fob',
@@ -43,7 +45,7 @@ champions = {
     'lissandra': 'tld',
     'ekko': 'fob',
     'tahm kench': 'tld',
-    'cho’gath': 'fob',
+    'chogath': 'fob',
     'shen': 'fob',
     'vladimir': 'tld',
     'yorick': 'fob',
@@ -53,6 +55,10 @@ champions = {
     'wukong': 'tld',
 }
 
-def masteries(champions):
-	champions=raw_input('Who are you against: ')
-	print champions[key]
+def masteries(champ):
+    for x in champions:
+        if champ == x:
+            print champions[champ]
+
+if __name__ == '__main__':
+    print (champions[champ]) 

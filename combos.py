@@ -1,27 +1,101 @@
-# total_ad=ad_from_items + ad_from_runes + ad_per_level + base_ad
-# bonus_ad=ad_from_items + ad_from_runes
-# ad_from_items=raw_input
-# ad_from_runes=raw_input
-# base_ad=54.06
-# level=(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18)
-# ad_per_level=2.83 * level
+ad_from_runes=input('What is your AD from runes: ')
+level=input('What is your level: ')
+ad_from_items=input('What is your AD from items: ')
+base_ad=54.06
+ad_per_level=3 * level
+# ad_per_level need to figure out floats.
 # skill=(1,2,3,4,5)
 # E=0
+
+bonus_ad = ad_from_items + ad_from_runes
+total_ad = bonus_ad + ad_per_level + base_ad
+
+print bonus_ad
+print total_ad
 
 TOTAL_AD = 10
 BONUS_AD = 5
 
-Q_LEVEL = 1
-W_LEVEL = 1
-E_LEVEL = 1
+if level == 1:
+  q_level = 1
+  w_level = 0
+  r_level = 0
+if level == 2:
+  q_level = 1
+  w_level = 1
+  r_level = 0
+if level == 3:
+  q_level = 1
+  w_level = 1
+  r_level = 1
+if level == 4:
+  q_level = 2
+  w_level = 1
+  r_level = 1
+if level == 5:
+  q_level = 3
+  w_level = 1
+  r_level = 1
+if level == 6:
+  q_level = 3
+  w_level = 1
+  r_level = 1
+if level == 7:
+  q_level = 4
+  w_level = 1
+  r_level = 1
+if level == 8:
+  q_level = 5
+  w_level = 1
+  r_level = 1
+if level == 9:
+  q_level = 5
+  w_level = 1
+  r_level = 1
+if level == 10:
+  q_level = 3
+  w_level = 1
+  r_level = 1
+if level == 11:
+  q_level = 3
+  w_level = 1
+  r_level = 2
+if level == 12:
+  q_level = 3
+  w_level = 1
+  r_level = 2
+if level == 13:
+  q_level = 3
+  w_level = 1
+  r_level = 2
+if level == 14:
+  q_level = 3
+  w_level = 2
+  r_level = 2
+if level == 15:
+  q_level = 3
+  w_level = 3
+  r_level = 2
+if level == 16:
+  q_level = 3
+  w_level = 3
+  r_level = 3
+if level == 17:
+  q_level = 3
+  w_level = 4
+  r_level = 3
+if level == 18:
+  q_level = 3
+  w_level = 5
+  r_level = 3
 
 def is_ult_active():
-  return True
+  return False
 
 def move_q(q_level, bonus_ad, total_ad):
   if q_level == 1:
     if is_ult_active():
-      return 30 + 0.45 * total_ad * 0.2 * bonus_ad
+      return 10 + 0.45 * total_ad * 0.2 * bonus_ad
     else:
       return 10 + 0.4 * total_ad
   if q_level == 2:
@@ -93,8 +167,11 @@ def move_r(r_level, bonus_ad):
 
 if __name__ == '__main__':
   print('Move Q at level 1 with 10 total AD and 10 bonus AD:')
-  print(move_q(1, 10, 10))
+  print q_level
+  print(move_q(q_level, total_ad, bonus_ad))
   print('Move W at level 1 with 10 total AD and 10 bonus AD:')
-  print(move_w(1, 10, 10))
+  print w_level
+  print(move_w(w_level, total_ad, bonus_ad))
   print('Move R at level 1 with 10 bonus AD:')
-  print(move_r(1, 10))
+  print r_level
+  print(move_r(r_level, bonus_ad))
