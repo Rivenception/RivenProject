@@ -13,9 +13,6 @@ total_ad = bonus_ad + ad_per_level + base_ad
 print bonus_ad
 print total_ad
 
-TOTAL_AD = 10
-BONUS_AD = 5
-
 if level == 1:
   q_level = 1
   w_level = 0
@@ -159,11 +156,11 @@ def move_r(r_level, bonus_ad):
   if r_level == 3:
     return 200 + 0.6 * bonus_ad
 
-# QW=Q + R
-# ERQ=E + R + Q
-# ER2WRQ3=E + R + 2 + W + R + Q3
-# RQ3=R + Q3
-# EWQ=E + W + Q
+# QW= Q + W
+# ERQ= E + R + Q
+# ER2WRQ3= E + R + 2 + W + R + Q3
+# RQ3= R + Q3
+# EWQ= E + W + Q
 
 if __name__ == '__main__':
   print('Move Q at level 1 with 10 total AD and 10 bonus AD:')
