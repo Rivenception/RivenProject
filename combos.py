@@ -10,9 +10,6 @@ ad_per_level=3 * level
 bonus_ad = ad_from_items + ad_from_runes
 total_ad = bonus_ad + ad_per_level + base_ad
 
-print bonus_ad
-print total_ad
-
 if level == 1:
   q_level = 1
   w_level = 0
@@ -87,7 +84,20 @@ if level == 18:
   r_level = 3
 
 def is_ult_active():
-  return False
+  return True
+
+def brokenwings():
+  if level <= 3:
+    return total_ad * 0.25
+  if level <= 6:
+    return total_ad * 0.3
+  if level <= 9:
+    return total_ad * 0.35
+  if level <= 12:
+    return total_ad * 0.4
+  if level <= 15:
+    return total_ad * 0.45
+
 
 def move_q(q_level, bonus_ad, total_ad):
   if q_level == 1:
@@ -156,6 +166,8 @@ def move_r(r_level, bonus_ad):
   if r_level == 3:
     return 200 + 0.6 * bonus_ad
 
+EAAWQ = (brokenwings()+move_w(w_level, total_ad, bonus_ad)+move_q(q_level, total_ad, bonus_ad))
+
 # QW= Q + W
 # ERQ= E + R + Q
 # ER2WRQ3= E + R + 2 + W + R + Q3
@@ -163,12 +175,20 @@ def move_r(r_level, bonus_ad):
 # EWQ= E + W + Q
 
 if __name__ == '__main__':
-  print('Move Q at level 1 with 10 total AD and 10 bonus AD:')
+  print('Bonus AD:')
+  print bonus_ad
+  print('Total AD:')
+  print total_ad
+  print('Brokenwings:')
+  print brokenwings() 
+  print('Move Q:')
   print q_level
   print(move_q(q_level, total_ad, bonus_ad))
-  print('Move W at level 1 with 10 total AD and 10 bonus AD:')
+  print('Move W:')
   print w_level
   print(move_w(w_level, total_ad, bonus_ad))
-  print('Move R at level 1 with 10 bonus AD:')
+  print('Move R:')
   print r_level
   print(move_r(r_level, bonus_ad))
+  print ('E-AA-W-Q')
+  print EAAWQ
